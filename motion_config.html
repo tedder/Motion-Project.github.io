@@ -3657,12 +3657,13 @@
         Take a motion captured picture, edit it with black and white for the mask and export it as a pgm file.
         with a program such as gimp.
 
-        If you cannot save in this format save as a grayscale jpg and then you can convert it to pgm format with
+        If you cannot save in this format save as a grayscale jpg and then you can convert it to pgm format with libjpeg's <code>djpeg</code> command:
         <p></p>
         <code>djpeg -grayscale -pnm [inputfile] &gt; mask.pgm</code>
-
         <p></p>
-        (assuming you have djpeg installed - part of the jpeg lib package).
+        Alternately, you can use Imagemagick's <code>convert</code> command:
+        <p></p>
+        <code>convert [inputfile] +compress mask.pgm</code>
         <p></p>
         Note that the mask file option masks off the detection of motion. The entire picture is still shown on the picture.
         This means that you cannot use the feature to mask off an area that you do not want people to see.  Instead
